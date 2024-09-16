@@ -1,11 +1,11 @@
 import { createApp } from "./config.js";
 
 const app = createApp({
-  user: "autumn_star_7622",
-  host: "168.119.168.41",
-  database: "demo",
-  password: "uaioysdfjoysfdf",
-  port: 18324,
+  user: "nadyar",
+  host: "bbz.cloud",
+  database: "nadyar",
+  password: "PJm{R$9p[a!#3k;+",
+  port: 30211,
 });
 
 /* Startseite */
@@ -15,6 +15,10 @@ app.get("/", async function (req, res) {
 
 app.get("/impressum", async function (req, res) {
   res.render("impressum", {});
+});
+
+app.get("/news", async function (req, res) {
+  res.render("news", {});
 });
 
 /* Wichtig! Diese Zeilen müssen immer am Schluss der Website stehen! */
