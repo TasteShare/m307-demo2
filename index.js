@@ -26,6 +26,10 @@ app.get("/news", async function (req, res) {
   res.render("news", {});
 });
 
+app.get("/favorite", async function (req, res) {
+  res.render("favorite", {});
+});
+
 app.post("/create_post", upload.single("image"), async function (req, res) {
   const result = await app.locals.pool.query(
     "INSERT INTO posts ( title, caption, image, user_id ) VALUES ($1, $2)",

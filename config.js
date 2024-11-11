@@ -96,3 +96,16 @@ export function createApp(dbconfig) {
 }
 
 export { upload };
+
+/* Favoriten */
+app.post("/like/:id", upload.none(), async function (req, res) {
+  const user = await login.loggedInUser(req);
+  if (!user) {
+    res.redirect("/login");
+    return;
+  }
+  await pool.query("INSERT INTO likes (posts_id, users_id) VALUES ($1, $2)", [
+    req.params.id,
+    users.id,
+  ]);
+});
