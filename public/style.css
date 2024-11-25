@@ -1,9 +1,19 @@
 * {
-  font-family: "Inter";
+  font-family: "Brother 1816";
 }
 
-header,
+h1 {
+  font-size: 40px;
+  font-family: "Brother 1816";
+}
+
 footer {
-  background-color: lightblue;
-  padding: 12px;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+}
+
+footer,
+a {
+  padding: 20px;
 }
