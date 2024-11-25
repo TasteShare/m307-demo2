@@ -43,3 +43,6 @@ app.post("/create_post", upload.single("image"), async function (req, res) {
 app.listen(3010, () => {
   console.log(`Example app listening at http://localhost:3010`);
 });
+
+/*Faforiten anzeigen 
+nach login dorthin geschickt */

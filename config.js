@@ -14,7 +14,7 @@ export function createApp(dbconfig) {
   const pool = new Pool(dbconfig);
   const login = new bbz307.Login(
     "users",
-    ["benutzername", "passwort", "profilbild"],
+    ["username", "passwort", "email"],
     pool
   );
 
@@ -82,12 +82,29 @@ export function createApp(dbconfig) {
     res.render("event_formular");
   });
 
-  app.post("/new_post", upload.none(), async function (req, res) {
+  app.get("/new_post", function (req, res) {
+    res.render("new_post");
+  });
+
+  app.post("/create_post", upload.single("image"), async function (req, res) {
     await pool.query(
-      "INSERT INTO posts (title, caption, image ) VALUES ($1, $2)",
-      [req.body.event_name, req.body.description]
+      "INSERT INTO posts (title, caption, image ) VALUES ($1, $2, $3)",
+      [req.body.title, req.body.caption, req.file.filename]
     );
     res.redirect("/");
+  });
+
+  /* Favoriten */
+  app.post("/like/:id", upload.none(), async function (req, res) {
+    const user = await login.loggedInUser(req);
+    if (!user) {
+      res.redirect("/login");
+      return;
+    }
+    await pool.query("INSERT INTO likes (posts_id, users_id) VALUES ($1, $2)", [
+      req.params.id,
+      users.id,
+    ]);
   });
 
   app.locals.pool = pool;
@@ -96,16 +113,3 @@ export function createApp(dbconfig) {
 }
 
 export { upload };
-
-/* Favoriten */
-app.post("/like/:id", upload.none(), async function (req, res) {
-  const user = await login.loggedInUser(req);
-  if (!user) {
-    res.redirect("/login");
-    return;
-  }
-  await pool.query("INSERT INTO likes (posts_id, users_id) VALUES ($1, $2)", [
-    req.params.id,
-    users.id,
-  ]);
-});
