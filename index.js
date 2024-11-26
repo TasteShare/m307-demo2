@@ -9,10 +9,7 @@ const app = createApp({
 });
 
 /* Startseite */
-app.get("/", async function (req, res) {
-  const posts = await app.locals.pool.query("select * from posts");
-  res.render("start", { posts: posts.rows });
-});
+
 
 app.get("/new_post", async function (req, res) {
   res.render("new_post", {});
@@ -45,4 +42,6 @@ app.listen(3010, () => {
 });
 
 /*Faforiten anzeigen 
-nach login dorthin geschickt */
+nach login dorthin geschickt 
+login 1.
+detail*/

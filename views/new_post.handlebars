@@ -4,3 +4,10 @@
   <input type="file" name="image" />
   <input type="submit" />
 </form>
+<body>
+
+  {{#posts}}
+    <img src="uploads/{{image}}" width="40%" />
+  {{/posts}}
+
+</body>

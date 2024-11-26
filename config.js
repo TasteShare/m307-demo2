@@ -86,6 +86,16 @@ export function createApp(dbconfig) {
     res.render("new_post");
   });
 
+  app.get("/", async function (req, res) {
+   /*const user = await login.loggedInUser(req);
+    if (!user) {
+      res.redirect("/login");
+      return;
+    } */
+    const posts = await app.locals.pool.query("select * from posts");
+    res.render("start", { posts: posts.rows });
+  });
+
   app.post("/create_post", upload.single("image"), async function (req, res) {
     await pool.query(
       "INSERT INTO posts (title, caption, image ) VALUES ($1, $2, $3)",
