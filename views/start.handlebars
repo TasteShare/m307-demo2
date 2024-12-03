@@ -1,11 +1,15 @@
-<footer>
+<header>
 
   <h1>Entdecke die Vielfalt der Rezepte und kreiere dein nächstes
     Lieblingsgericht!</h1>
 
-</footer>
+</header>
 
-{{#posts}}
-  <a href="/detail/{{id}}">
-    <img src="uploads/{{image}}" width="30%" /></a>
-{{/posts}}
+<div class="content">
+
+  {{#posts}}
+    <a href="/detail/{{id}}">
+      <img src="uploads/{{image}}" width="30%" /></a>
+  {{/posts}}
+
+</div>

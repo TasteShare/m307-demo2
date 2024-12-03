@@ -1,7 +1,18 @@
-<form action="/create_post" enctype="multipart/form-data" method="post">
+<header>
+  <h1>Dein Profil</h1>
+
+</header>
+
+<form
+  action="/create_post"
+  enctype="multipart/form-data"
+  method="post"
+  class="content"
+>
+
+  <input type="file" name="image" />
   <input type="text" name="title" />
   <input type="text" name="caption" />
-  <input type="file" name="image" />
   <input type="submit" />
 </form>
 <body>

@@ -87,7 +87,7 @@ export function createApp(dbconfig) {
   });
 
   app.get("/", async function (req, res) {
-   /*const user = await login.loggedInUser(req);
+    /* const user = await login.loggedInUser(req);
     if (!user) {
       res.redirect("/login");
       return;
@@ -116,6 +116,14 @@ export function createApp(dbconfig) {
       users.id,
     ]);
   });
+
+  /*app.post("/detail/:id", upload.none(), async function (req, res) 
+    const favorite = await pool.query("INSERT INTO likes (posts_id, users_id) VALUES ($1, $2)", [
+      req.params.id,
+      users.id,
+    ]);
+  }); 
+  Powerpoint URL Parameter Seite 7*/
 
   app.locals.pool = pool;
 

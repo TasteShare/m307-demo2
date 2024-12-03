@@ -1,10 +1,10 @@
 * {
-  font-family: "Brother 1816";
+  font-family: "arial";
 }
 
 h1 {
   font-size: 40px;
-  font-family: "Brother 1816";
+  font-family: "arial";
 }
 
 footer {
@@ -18,6 +18,21 @@ a {
   padding: 20px;
 }
 
-body {
+.content {
   background-color: E7DFC9;
+  padding: 40px;
+}
+
+header {
+  display: flex;
+  background-color: white;
+  justify-content: start;
+  align-items: flex-start;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
 }
